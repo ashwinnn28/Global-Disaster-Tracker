@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Natural Disaster Tracker</title>
+<style>
+body {
+ background-color: black;
+}
+@font-face {
+font-family: firstFont;
+src: url(static/font/Constantine.ttf);
+}
+h1 {
+text-align: center;
+font-family: firstFont;
+color: white;
+}
+h2 {
+text-align: center;
+font-family: firstFont;
+color: white;
+}
+form {
+    text-align: center;
+color: white;
+}
+.leftside{
+margin-top: 50px;
+margin-left: 270px;
+}
+.labelexpanded{
+font-size: 12px;
+}
+.labelexpanded > input{
+display: none;
+}
+.labelexpanded input:checked + .radio-btns{
+border: 1px solid #fff;
+box-shadow: 0 0 3px 3px #090;
+}
+.radio-btns{
+width: 200px;
+height: 200px;
+}
+.card {
+display: block;
+overflow: hidden;
+border-radius: 0.6rem;
+cursor: pointer;
+transition: 0.2s;
+position: relative;
+}
+.card-content {
+position: absolute;
+background-color: rgb(0 0 0 / 50%);
+color: #ffffff;
+bottom: 0;
+width: 100%;
+height: 15%;
+padding: 0.5rem 0;
+overflow: hidden;
+transition: 0.7s;
+}
+.card-content h1 {
+font-size: 1rem;
+font-weight: 600;
+text-transform: capitalize;
+}
+.card-content p {
+font-size: 0.8rem;
+font-weight: 200;
+line-height: 1rem;
+}
+.card-content:hover {
+height: 70%;
+transition: 0.7s;
+}
+.column {
+float: left;
+width: 30%;
+padding: 5px;
+}
+.row::after {
+content: "";
+clear: both;
+display: table;
+}
+</style>
+</head>
+<header>
+<h1>GLOBAL &nbsp DISASTER &nbsp TRACKER</h1>
+</header>
+<body>
+<form action="{{ url_for('handle_data') }}" method="post">
+<div class = "leftside">
+<div class="row">
+<div class="column">
+<label class="labelexpanded">
+    <input type="radio" id="volcano" name="eventId" value=12>
+<div class="radio-btns">
+<div class="card">
+<div class="img-box">
+<img src="{{url_for('static',filename='images/Volcano.jpg')}}" height="200px" width="200px"/>
+</div>
+<div class="card-content">
+<h2>Volcano</h2>
+<p class="card-text">A volcano is a rupture in
+the crust of a planetary-mass object, such as Earth, that allows hot lava,
+volcanic ash, and gases to escape from a magma chamber below the
+surface.</p>
+</div>
+</div>
+</div>
+</label>
+</div>
+<div class="column">
+<label class="labelexpanded">
+<input type="radio" id="storm" name="eventId"
+value=10>
+<div class="radio-btns">
+<div class="card">
+<div class="img-box">
+<img src="{{url_for('static',
+filename='images/severe_storm.png')}}" height="200px"
+width="200px"/>
+</div>
+<div class="card-content">
+<h2>Severe Storm</h2>
+<p class="card-text">Severe storm is any
+dangerous meteorological phenomenon with the potential to cause
+damage, serious social disruption, or loss of human life.</p>
+</div>
+</div>
+</div>
+</label>
+</div>
+<div class="column">
+<label class="labelexpanded">
+<input type="radio" id="wildfire" name="eventId"
+value=8>
+<div class="radio-btns">
+<div class="card">
+<div class="img-box">
+<img src="{{url_for('static',
+filename='images/wildfire.jpg')}}" height="200px" width="200px"/>
+</div>
+<div class="card-content">
+<h2>wildfire</h2>
+<p class="card-text">A wildfire, forest fire,
+bushfire, wildland fire or rural fire is an unplanned, uncontrolled and
+unpredictable fire in an area of combustible vegetation.</p>
+</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="column">
+<label class="labelexpanded">
+<input type="radio" id="sealakeice" name="eventId"
+value=15>
+<div class="radio-btns">
+<div class="card">
+<div class="img-box">
+<img src="{{url_for('static',
+filename='images/ice.jpeg')}}" height="200px" width="200px"/>
+</div>
+<div class="card-content">
+<h2>Sea and Lake Ice</h2>
+<p class="card-text">Freezing of water in large
+water bodies resulting in formation of glaciers which could cause glacier
+floods and avalanlches.</p>
+</div>
+</div>
+</div>
+</label>
+</div>
+<div class="column">
+<label class="labelexpanded">
+<input type="radio" id="earthquake" name="eventId"
+value=16>
+<div class="radio-btns">
+<div class="card">
+<div class="img-box">
+<img src="{{url_for('static',
+filename='images/earthquake.jpeg')}}" height="200px" width="200px"/>
+</div>
+<div class="card-content">
+<h2>Earthquake</h2>
+<p class="card-text">An earthquake is the
+shaking of the surface of the Earth resulting from a sudden release of
+energy in the Earth's lithosphere that creates seismic waves.</p>
+</div>
+</div>
+</div>
+</label>
+</div>
+<div class="column">
+<label class="labelexpanded">
+<input type="radio" id="drought" name="eventId"
+value=6>
+<div class="radio-btns">
+<div class="card">
+<div class="img-box">
+<img src="{{url_for('static',
+filename='images/drought.jpeg')}}" height="200px" width="200px"/>
+</div>
+<div class="card-content">
+<h2>Drought</h2>
+<p class="card-text">A drought is defined as drier than normal
+    conditions. This means that a drought is "a moisture deficit relative to the
+    average water availability at a given location and season". </p>
+</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<input type = "text" name="lattitude" placeholder="Lattitude" >
+<input type = "text" name="start" placeholder="Start year"
+style="margin-left: 650px; margin-top: 10px;"><br>
+<input type = "text" name="longtitude" placeholder="Longitude">
+<input type = "text" name="radius" placeholder="Radius"
+style="margin-left: 199px;">
+<input type = "text" name="end" placeholder="End year"
+style="margin-left: 275px; margin-top: 10px;">
+<br><br>
+<input type="submit" style="margin-right: 70px;">
+</form>
+</body>
+</html>
+    
